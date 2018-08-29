@@ -32,6 +32,7 @@ public class registrarPersona extends RouteBuilder{
 					exchange.setProperty("correo", body.getPersona().get(0).getCorreo());
 					exchange.setProperty("contrasena", body.getPersona().get(0).getContrasena());
 					exchange.setProperty("telefono", body.getPersona().get(0).getTelefono());
+					exchange.setProperty("ciudad", body.getPersona().get(0).getCiudad());
 					exchange.setProperty("genero", body.getPersona().get(0).getGenero());
 					exchange.setProperty("rol", body.getPersona().get(0).getRol());
 					exchange.setProperty("estado", body.getPersona().get(0).getEstado());

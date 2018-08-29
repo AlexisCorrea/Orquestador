@@ -31,9 +31,16 @@ public class RegistrarRequestNegocio   {
   
   @JsonProperty("detalle")
   private String detalle = null;
+  
+  @JsonProperty("correo")
+  private String correo = null;
 
   @JsonProperty("tipo")
   private String tipo = null;
+  
+  @JsonProperty("telefono")
+  private String telefono = null;
+
 
   @JsonProperty("ubicacion")
   private String ubicacion = null;
@@ -111,6 +118,26 @@ public class RegistrarRequestNegocio   {
     this.foto = foto;
     return this;
   }
+  public RegistrarRequestNegocio correo(String correo) {
+	    this.correo = correo;
+	    return this;
+	  }
+
+	  /**
+	   * Get nit
+	   * @return nit
+	  **/
+	  @ApiModelProperty(required = true, value = "")
+	  @NotNull
+
+
+	  public String getCorreo() {
+	    return correo;
+	  }
+
+	  public void setCorreo(String correo) {
+	    this.correo = correo;
+	  }
 
   /**
    * Get foto
@@ -170,6 +197,27 @@ public class RegistrarRequestNegocio   {
 
   public RegistrarRequestNegocio ubicacion(String ubicacion) {
     this.ubicacion = ubicacion;
+    return this;
+  }
+
+  /**
+   * Get telefono
+   * @return telefono
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+
+
+  public String getTelefono() {
+    return tipo;
+  }
+
+  public void setTelefono(String telefono) {
+    this.telefono = telefono;
+  }
+
+  public RegistrarRequestNegocio telefono(String telefono) {
+    this.telefono = telefono;
     return this;
   }
 
@@ -243,15 +291,18 @@ public class RegistrarRequestNegocio   {
     return Objects.equals(this.id, registrarRequestNegocio.id) &&
         Objects.equals(this.nombre, registrarRequestNegocio.nombre) &&
         Objects.equals(this.nit, registrarRequestNegocio.nit) &&
+        Objects.equals(this.correo, registrarRequestNegocio.correo) &&
+        Objects.equals(this.detalle, registrarRequestNegocio.detalle) &&
         Objects.equals(this.foto, registrarRequestNegocio.foto) &&
         Objects.equals(this.tipo, registrarRequestNegocio.tipo) &&
+        Objects.equals(this.telefono, registrarRequestNegocio.telefono) &&
         Objects.equals(this.ubicacion, registrarRequestNegocio.ubicacion) &&
         Objects.equals(this.idAdministrador, registrarRequestNegocio.idAdministrador);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, nombre, nit, foto, tipo, ubicacion, idAdministrador);
+    return Objects.hash(id, nombre, nit, correo,foto, tipo, ubicacion, idAdministrador);
   }
 
   @Override
@@ -262,8 +313,10 @@ public class RegistrarRequestNegocio   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    nombre: ").append(toIndentedString(nombre)).append("\n");
     sb.append("    nit: ").append(toIndentedString(nit)).append("\n");
+    sb.append("    correo: ").append(toIndentedString(correo)).append("\n");
     sb.append("    foto: ").append(toIndentedString(foto)).append("\n");
     sb.append("    tipo: ").append(toIndentedString(tipo)).append("\n");
+    sb.append("    telefono: ").append(toIndentedString(telefono)).append("\n");
     sb.append("    ubicacion: ").append(toIndentedString(ubicacion)).append("\n");
     sb.append("    idAdministrador: ").append(toIndentedString(idAdministrador)).append("\n");
     sb.append("}");

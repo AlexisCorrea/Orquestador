@@ -14,6 +14,7 @@ import orquestador.model.JsonApiBodyResponseSuccess;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -30,7 +31,7 @@ import java.util.List;
 
 @Api(value = "registrar", description = "the registrar API")
 public interface RegistrarApi {
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "registro de ofertas", nickname = "registrarNegocioPost", notes = "registro de ofertas", response = JsonApiBodyResponseSuccess.class, tags={ "negocio", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "ofertas registrada correctamente", response = JsonApiBodyResponseSuccess.class),
@@ -39,9 +40,9 @@ public interface RegistrarApi {
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    ResponseEntity<JsonApiBodyResponseSuccess> registrarNegocioPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestNegocio body);
+    ResponseEntity<?> registrarNegocioPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestNegocio body);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "registro de ofertas", nickname = "registrarOfertaPost", notes = "registro de ofertas", response = JsonApiBodyResponseSuccess.class, tags={ "ofertas", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "ofertas registrada correctamente", response = JsonApiBodyResponseSuccess.class),
@@ -52,7 +53,7 @@ public interface RegistrarApi {
         method = RequestMethod.POST)
     ResponseEntity<JsonApiBodyResponseSuccess> registrarOfertaPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestOferta body);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "registro de ofertas", nickname = "registrarPersonaPost", notes = "registro de ofertas", response = JsonApiBodyResponseSuccess.class, tags={ "persona", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "ofertas registrada correctamente", response = JsonApiBodyResponseSuccess.class),
@@ -61,6 +62,6 @@ public interface RegistrarApi {
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    ResponseEntity<JsonApiBodyResponseSuccess> registrarPersonaPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestPersona body);
+    ResponseEntity<?> registrarPersonaPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestPersona body);
 
 }

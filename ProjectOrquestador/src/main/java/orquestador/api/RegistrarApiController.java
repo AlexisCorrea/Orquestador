@@ -50,15 +50,17 @@ public class RegistrarApiController implements RegistrarApi {
         this.request = request;
     }
 
-    public ResponseEntity<JsonApiBodyResponseSuccess> registrarNegocioPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestNegocio body) {
+    public ResponseEntity<?> registrarNegocioPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestNegocio body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-            	registrar_negocio.withBody(body).request();
-                return new ResponseEntity<JsonApiBodyResponseSuccess>(objectMapper.readValue("{  \"estado\" : \"estado\",  \"id\" : \"id\",  \"nombre\" : \"nombre\"}", JsonApiBodyResponseSuccess.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<JsonApiBodyResponseSuccess>(HttpStatus.INTERNAL_SERVER_ERROR);
+            	JsonApiBodyResponseSuccess exito= (JsonApiBodyResponseSuccess) registrar_negocio.withBody(body).request();
+                return new ResponseEntity<JsonApiBodyResponseSuccess>(exito, HttpStatus.OK);
+            } catch (Exception e) {
+               JsonApiBodyResponseErrors error= new JsonApiBodyResponseErrors();
+               error.setCodigo("001");
+               error.setDetalle("error interno cuanod se intento convertir la respuesta a exito");
+                return new ResponseEntity<JsonApiBodyResponseErrors>(error,HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
@@ -79,16 +81,18 @@ public class RegistrarApiController implements RegistrarApi {
         return new ResponseEntity<JsonApiBodyResponseSuccess>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<JsonApiBodyResponseSuccess> registrarPersonaPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestPersona body) {
+    public ResponseEntity<?> registrarPersonaPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestPersona body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-            	Object exito = registrar_persona.withBody(body).request();
+            	JsonApiBodyResponseSuccess exito =(JsonApiBodyResponseSuccess) registrar_persona.withBody(body).request();
             	System.out.println("el parametro resivido"+exito);
-                return new ResponseEntity<JsonApiBodyResponseSuccess>(HttpStatus.OK);
+                return new ResponseEntity<JsonApiBodyResponseSuccess>(exito, HttpStatus.OK);
             } catch (Exception e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<JsonApiBodyResponseSuccess>(HttpStatus.INTERNAL_SERVER_ERROR);
+                JsonApiBodyResponseErrors error= new JsonApiBodyResponseErrors();
+                error.setCodigo("001");
+                error.setDetalle("error interno cuanod se intento convertir la respuesta a exito");
+                return new ResponseEntity<JsonApiBodyResponseErrors>(error,HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 

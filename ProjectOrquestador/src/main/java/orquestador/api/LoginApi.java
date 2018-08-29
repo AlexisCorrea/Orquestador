@@ -12,6 +12,7 @@ import orquestador.model.JsonApiBodyResponseErrors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -28,7 +29,7 @@ import java.util.List;
 
 @Api(value = "login", description = "the login API")
 public interface LoginApi {
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "login de usuarios", nickname = "loginPersonaPost", notes = "se envian los parametros de corroe y contraseña  se retorna la pesona si se encuentran", response = JsonApiBodyRequestPersona.class, tags={ "persona", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "logueo exito", response = JsonApiBodyRequestPersona.class),

@@ -33,6 +33,9 @@ public class RegistrarRequestPersona   {
 
   @JsonProperty("telefono")
   private String telefono = null;
+  
+  @JsonProperty("ciudad")
+  private String ciudad = null;
 
   @JsonProperty("genero")
   private String genero = null;
@@ -176,6 +179,26 @@ public class RegistrarRequestPersona   {
     this.genero = genero;
     return this;
   }
+  public RegistrarRequestPersona ciudad(String ciudad) {
+	    this.ciudad = ciudad;
+	    return this;
+	  }
+
+	  /**
+	   * Get ciudad
+	   * @return ciudad
+	  **/
+	  @ApiModelProperty(required = true, value = "")
+	  @NotNull
+
+
+	  public String getCiudad() {
+	    return ciudad;
+	  }
+
+	  public void setCiudad(String ciudad) {
+	    this.ciudad = ciudad;
+	  }
 
   /**
    * Get genero
@@ -272,6 +295,7 @@ public class RegistrarRequestPersona   {
         Objects.equals(this.correo, registrarRequestPersona.correo) &&
         Objects.equals(this.contrasena, registrarRequestPersona.contrasena) &&
         Objects.equals(this.telefono, registrarRequestPersona.telefono) &&
+        Objects.equals(this.ciudad, registrarRequestPersona.ciudad) &&
         Objects.equals(this.genero, registrarRequestPersona.genero) &&
         Objects.equals(this.rol, registrarRequestPersona.rol) &&
         Objects.equals(this.estado, registrarRequestPersona.estado) &&
@@ -280,7 +304,7 @@ public class RegistrarRequestPersona   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, nombre, apellidos, correo, contrasena, telefono, genero, rol, estado, token);
+    return Objects.hash(id, nombre, apellidos, correo, contrasena, telefono,ciudad, genero, rol, estado, token);
   }
 
   @Override
@@ -294,6 +318,7 @@ public class RegistrarRequestPersona   {
     sb.append("    correo: ").append(toIndentedString(correo)).append("\n");
     sb.append("    contrasena: ").append(toIndentedString(contrasena)).append("\n");
     sb.append("    telefono: ").append(toIndentedString(telefono)).append("\n");
+    sb.append("    ciudad: ").append(toIndentedString(ciudad)).append("\n");
     sb.append("    genero: ").append(toIndentedString(genero)).append("\n");
     sb.append("    rol: ").append(toIndentedString(rol)).append("\n");
     sb.append("    estado: ").append(toIndentedString(estado)).append("\n");

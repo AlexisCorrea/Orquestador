@@ -14,6 +14,7 @@ import orquestador.model.JsonApiBodyResponseErrors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -30,7 +31,7 @@ import java.util.List;
 
 @Api(value = "listar", description = "the listar API")
 public interface ListarApi {
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "buscar negocio", nickname = "listarNegocioIdtrabajadorPost", notes = "retorna todos los negocios", response = JsonApiBodyRequestNegocio.class, tags={ "negocio", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "negocios encontrados", response = JsonApiBodyRequestNegocio.class),
@@ -41,7 +42,7 @@ public interface ListarApi {
         method = RequestMethod.POST)
     ResponseEntity<JsonApiBodyRequestNegocio> listarNegocioIdtrabajadorPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestGetNegocio body);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "buscar negocio", nickname = "listarNegocioTipoPost", notes = "retorna todos los negocios", response = JsonApiBodyRequestNegocio.class, tags={ "negocio", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "negocios encontrados", response = JsonApiBodyRequestNegocio.class),
@@ -52,7 +53,7 @@ public interface ListarApi {
         method = RequestMethod.POST)
     ResponseEntity<JsonApiBodyRequestNegocio> listarNegocioTipoPost(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestGetNegocio body);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "buscar ofertas", nickname = "listarOfertaGet", notes = "devuelve todas las ofertas", response = JsonApiBodyRequestOferta.class, tags={ "ofertas", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "ofertas encontradas", response = JsonApiBodyRequestOferta.class),
@@ -62,7 +63,7 @@ public interface ListarApi {
         method = RequestMethod.GET)
     ResponseEntity<JsonApiBodyRequestOferta> listarOfertaGet();
 
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "buscar persona", nickname = "listarPersonaEstadoEstadoGet", notes = "devuelve todas las personas", response = JsonApiBodyRequestPersona.class, tags={ "persona", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "personas encontradas", response = JsonApiBodyRequestPersona.class),
@@ -72,7 +73,7 @@ public interface ListarApi {
         method = RequestMethod.GET)
     ResponseEntity<JsonApiBodyRequestPersona> listarPersonaEstadoEstadoGet(@ApiParam(value = "estado de la persona que se esta buscando",required=true) @PathVariable("estado") String estado);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "buscar persona", nickname = "listarPersonaGet", notes = "devuelve todas las personas", response = JsonApiBodyRequestPersona.class, tags={ "persona", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "personas encontradas", response = JsonApiBodyRequestPersona.class),
@@ -82,7 +83,7 @@ public interface ListarApi {
         method = RequestMethod.GET)
     ResponseEntity<JsonApiBodyRequestPersona> listarPersonaGet();
 
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "buscar persona", nickname = "listarPersonaIdGet", notes = "devuelve todas las personas", response = JsonApiBodyRequestPersona.class, tags={ "persona", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "personas encontradas", response = JsonApiBodyRequestPersona.class),
@@ -92,7 +93,7 @@ public interface ListarApi {
         method = RequestMethod.GET)
     ResponseEntity<JsonApiBodyRequestPersona> listarPersonaIdGet(@ApiParam(value = "id de la persona que se esta buscando",required=true) @PathVariable("id") String id);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200") 
     @ApiOperation(value = "buscar persona", nickname = "listarPersonaRolRolGet", notes = "devuelve todas las personas", response = JsonApiBodyRequestPersona.class, tags={ "persona", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "personas encontradas", response = JsonApiBodyRequestPersona.class),
