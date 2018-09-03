@@ -14,6 +14,7 @@ import orquestador.model.JsonApiBodyResponseSuccess;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -30,7 +31,7 @@ import java.util.List;
 
 @Api(value = "eliminar", description = "the eliminar API")
 public interface EliminarApi {
-
+	 @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation(value = "eliminar negocio", nickname = "eliminarNegocioDelete", notes = "", response = JsonApiBodyResponseSuccess.class, tags={ "negocio", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "oferta eliminada", response = JsonApiBodyResponseSuccess.class),
@@ -39,7 +40,7 @@ public interface EliminarApi {
         method = RequestMethod.DELETE)
     ResponseEntity<?> eliminarNegocioDelete(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestDeleteNegocio body);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation(value = "eliminar ofertas", nickname = "eliminarOfertaDelete", notes = "", response = JsonApiBodyResponseSuccess.class, tags={ "ofertas", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "oferta eliminada", response = JsonApiBodyResponseSuccess.class),
@@ -48,7 +49,7 @@ public interface EliminarApi {
         method = RequestMethod.DELETE)
     ResponseEntity<JsonApiBodyResponseSuccess> eliminarOfertaDelete(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestDeleteOferta body);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200")	
     @ApiOperation(value = "eliminar persona", nickname = "eliminarPersonaDelete", notes = "", response = JsonApiBodyResponseSuccess.class, tags={ "persona", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "oferta eliminada", response = JsonApiBodyResponseSuccess.class),

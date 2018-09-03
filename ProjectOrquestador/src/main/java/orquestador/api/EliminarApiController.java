@@ -55,8 +55,9 @@ public class EliminarApiController implements EliminarApi {
 
     public ResponseEntity<?> eliminarNegocioDelete(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestDeleteNegocio body) {
         String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
+//        if (accept != null && accept.contains("application/json")) {
             try {
+            	System.out.println(body);
             	 exito = (JsonApiBodyResponseSuccess)eliminar_negocio.withBody(body).request();
                 //System.out.println(exito);
             	return new ResponseEntity<JsonApiBodyResponseSuccess>(exito,HttpStatus.OK);
@@ -65,9 +66,9 @@ public class EliminarApiController implements EliminarApi {
                 error.setDetalle("No se pudo eliminar negocio");
                 return new ResponseEntity<JsonApiBodyResponseErrors>(error,HttpStatus.INTERNAL_SERVER_ERROR);
             }
-        }
-
-        return new ResponseEntity<JsonApiBodyResponseSuccess>(HttpStatus.NOT_IMPLEMENTED);
+//        }
+//
+//        return new ResponseEntity<JsonApiBodyResponseSuccess>(HttpStatus.NOT_IMPLEMENTED);
     }
 
     public ResponseEntity<JsonApiBodyResponseSuccess> eliminarOfertaDelete(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestDeleteOferta body) {

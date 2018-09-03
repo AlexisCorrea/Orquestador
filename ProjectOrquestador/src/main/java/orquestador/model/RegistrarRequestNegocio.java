@@ -209,7 +209,7 @@ public class RegistrarRequestNegocio   {
 
 
   public String getTelefono() {
-    return tipo;
+    return telefono;
   }
 
   public void setTelefono(String telefono) {

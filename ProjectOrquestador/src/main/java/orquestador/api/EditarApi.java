@@ -14,6 +14,7 @@ import orquestador.model.JsonApiBodyResponseSuccess;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -30,7 +31,7 @@ import java.util.List;
 
 @Api(value = "editar", description = "the editar API")
 public interface EditarApi {
-
+	 @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation(value = "edita negocio", nickname = "editarNegocioPut", notes = "edita todo tipo de ofertas", response = JsonApiBodyResponseSuccess.class, tags={ "negocio", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "ofertas edita correctamente", response = JsonApiBodyResponseSuccess.class),
@@ -41,7 +42,7 @@ public interface EditarApi {
         method = RequestMethod.PUT)
     ResponseEntity<JsonApiBodyResponseSuccess> editarNegocioPut(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestNegocio body);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation(value = "edita ofertas", nickname = "editarOfertaPut", notes = "edita todo tipo de ofertas", response = JsonApiBodyResponseSuccess.class, tags={ "ofertas", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "ofertas edita correctamente", response = JsonApiBodyResponseSuccess.class),
@@ -52,7 +53,7 @@ public interface EditarApi {
         method = RequestMethod.PUT)
     ResponseEntity<JsonApiBodyResponseSuccess> editarOfertaPut(@ApiParam(value = "body" ,required=true )  @Valid @RequestBody JsonApiBodyRequestOferta body);
 
-
+	 @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation(value = "edita persona", nickname = "editarPersonaPut", notes = "edita todo tipo de ofertas", response = JsonApiBodyResponseSuccess.class, tags={ "persona", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "ofertas edita correctamente", response = JsonApiBodyResponseSuccess.class),

@@ -85,6 +85,7 @@ public class RegistrarApiController implements RegistrarApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
+            	System.out.println("Este es le body que llego"+body);
             	JsonApiBodyResponseSuccess exito =(JsonApiBodyResponseSuccess) registrar_persona.withBody(body).request();
             	System.out.println("el parametro resivido"+exito);
                 return new ResponseEntity<JsonApiBodyResponseSuccess>(exito, HttpStatus.OK);

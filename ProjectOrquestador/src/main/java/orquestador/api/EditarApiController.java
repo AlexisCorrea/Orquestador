@@ -56,7 +56,7 @@ public class EditarApiController implements EditarApi {
             try {
             	
             	JsonApiBodyResponseSuccess exito= (JsonApiBodyResponseSuccess)editar_negocio.withBody(body).request();
-                return new ResponseEntity<JsonApiBodyResponseSuccess>(HttpStatus.OK);
+                return new ResponseEntity<JsonApiBodyResponseSuccess>(exito,HttpStatus.OK);
             } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<JsonApiBodyResponseSuccess>(HttpStatus.INTERNAL_SERVER_ERROR);
