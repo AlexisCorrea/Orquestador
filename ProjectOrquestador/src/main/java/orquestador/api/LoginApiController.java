@@ -53,8 +53,8 @@ public class LoginApiController implements LoginApi {
                 System.out.println(persona.toString());
             	return new ResponseEntity<JsonApiBodyRequestPersona>(persona,HttpStatus.OK);
             } catch (Exception e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<JsonApiBodyRequestPersona>(HttpStatus.INTERNAL_SERVER_ERROR);
+                
+                return new ResponseEntity<JsonApiBodyRequestPersona>(HttpStatus.OK);
             }
         }
 
