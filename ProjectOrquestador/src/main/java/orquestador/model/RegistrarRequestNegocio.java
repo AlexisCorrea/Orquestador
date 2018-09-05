@@ -32,6 +32,12 @@ public class RegistrarRequestNegocio   {
   @JsonProperty("detalle")
   private String detalle = null;
   
+  @JsonProperty("latitud")
+  private String latitud = null;
+  
+  @JsonProperty("longitud")
+  private String longitud = null;
+  
   @JsonProperty("correo")
   private String correo = null;
 
@@ -95,6 +101,33 @@ public class RegistrarRequestNegocio   {
 
   public RegistrarRequestNegocio nit(String nit) {
     this.nit = nit;
+    return this;
+  }
+  
+  
+  public String getLongitud() {
+    return longitud;
+  }
+
+  public void setLongitud(String longitud) {
+    this.longitud = longitud;
+  }
+
+  public RegistrarRequestNegocio longitud(String longitud) {
+    this.longitud = longitud;
+    return this;
+  }
+  
+  public String getLatitud() {
+    return latitud;
+  }
+
+  public void setLatitud(String latitud) {
+    this.latitud = latitud;
+  }
+
+  public RegistrarRequestNegocio latitud(String latitud) {
+    this.latitud = latitud;
     return this;
   }
 
