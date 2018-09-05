@@ -26,6 +26,7 @@ public class registrarNegocio extends RouteBuilder {
 				@Override
 				public void process(Exchange exchange) throws Exception {
 					JsonApiBodyRequestNegocio TheBody=(JsonApiBodyRequestNegocio) exchange.getIn().getBody();
+					System.out.println(TheBody);
 					exchange.setProperty("id", TheBody.getNegocio().get(0).getId());
 					exchange.setProperty("nombre", TheBody.getNegocio().get(0).getNombre());
 					exchange.setProperty("nit", TheBody.getNegocio().get(0).getNit());
