@@ -29,6 +29,8 @@ public class editarNegocio extends RouteBuilder {
 						exchange.setProperty("foto", TheBody.getNegocio().get(0).getFoto());
 						exchange.setProperty("detalle", TheBody.getNegocio().get(0).getDetalle());
 						exchange.setProperty("tipo", TheBody.getNegocio().get(0).getTipo());
+						exchange.setProperty("latitud", TheBody.getNegocio().get(0).getLatitud());
+						exchange.setProperty("longitud", TheBody.getNegocio().get(0).getLongitud());
 						exchange.setProperty("correo", TheBody.getNegocio().get(0).getCorreo());
 						exchange.setProperty("telefono", TheBody.getNegocio().get(0).getTelefono());
 						exchange.setProperty("ubicacion", TheBody.getNegocio().get(0).getUbicacion());

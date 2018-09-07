@@ -28,6 +28,7 @@ public class editarPersona extends RouteBuilder {
 					exchange.setProperty("nombre", body.getPersona().get(0).getNombre());
 					exchange.setProperty("apellidos", body.getPersona().get(0).getApellidos());
 					exchange.setProperty("correo", body.getPersona().get(0).getCorreo());
+					exchange.setProperty("ciudad", body.getPersona().get(0).getCiudad());
 					exchange.setProperty("contrasena", body.getPersona().get(0).getContrasena());
 					exchange.setProperty("telefono", body.getPersona().get(0).getTelefono());
 					exchange.setProperty("genero", body.getPersona().get(0).getGenero());
