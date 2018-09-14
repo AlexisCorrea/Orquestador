@@ -51,10 +51,15 @@ public class registrarPersona extends RouteBuilder{
 				
 				@Override
 				public void process(Exchange exchange) throws Exception {
+					
 					JsonApiBodyResponseSuccess exito = (JsonApiBodyResponseSuccess) exchange.getIn().getBody();
+					
 					System.out.println(exito.toString());
 				}
 			})
+			.choice()
+			.when().simple("{body}")
+			.log("${body}")
 			.endHystrix()
 			.onFallback()
 			.convertBodyTo(String.class)
@@ -63,7 +68,8 @@ public class registrarPersona extends RouteBuilder{
 				
 				@Override
 				public void process(Exchange exchange) throws Exception {
-					System.out.println(exchange.getIn().getHeader("statusCode"));
+					System.out.println("el end");
+					System.out.println(exchange.getIn().getBody());
 					
 				}
 			})
